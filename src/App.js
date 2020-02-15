@@ -5,6 +5,7 @@ import RouteRenderer from './routes/RouteRenderer'
 import GlobalStyles from './styles/global'
 
 function App({ routeConfig }) {
+  console.log()
   return (
     <>
       <GlobalStyles />

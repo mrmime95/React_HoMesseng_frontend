@@ -14,12 +14,8 @@ export const routes = {
   home: '/',
   auth: '/auth',
   authLogin: '/auth/login',
-  authRegister: '/auth/register'
-}
-
-export const routesByPage = {
-  user_login: routes.authLogin,
-  user_register: routes.AuthRegister
+  authRegister: '/auth/register',
+  notFound: '*'
 }
 
 const routeConfig = [
