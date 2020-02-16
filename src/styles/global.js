@@ -10,10 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html, body, #${ROOT_ELEMENT_ID}, #site-main {
     height: 100%;
-  }
-  html {
-    font-size: 62.5%;
-  }
+  },
   body {
     font-family: ${FONT_FAMILY};
     font-size: ${FONT_SIZES.body};
