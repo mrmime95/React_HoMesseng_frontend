@@ -10,8 +10,20 @@ import routeConfig from './routes'
 import configureStore from './store'
 import { ROOT_ELEMENT_ID, INITIAL_STATE_KEY } from './utils/constants'
 
+import { loadUserByToken } from './store/auth'
+import setAuthToken from './utils/setAuthToken'
+import axios from 'axios'
+
 const root = document.getElementById(ROOT_ELEMENT_ID)
 const store = configureStore(window[INITIAL_STATE_KEY])
+
+axios.defaults.baseURL = process.env.API_URL || 'http://localhost:5000/'
+axios.defaults.headers['content-type'] = 'application/json'
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token)
+  store.dispatch(loadUserByToken())
+}
 
 ReactDOM.render(
   <Provider store={store}>

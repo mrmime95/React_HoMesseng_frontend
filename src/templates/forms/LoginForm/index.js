@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
@@ -26,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function LoginForm() {
+export default function LoginForm({ onLogin }) {
   const classes = useStyles()
 
   return (
@@ -39,7 +41,7 @@ export default function LoginForm() {
       </Typography>
       <Form
         onSubmit={value => {
-          console.log(value)
+          onLogin(value)
         }}
       >
         {() => (
@@ -63,4 +65,8 @@ export default function LoginForm() {
       </Grid>
     </div>
   )
+}
+
+LoginForm.propTypes = {
+  onLogin: PropTypes.func
 }

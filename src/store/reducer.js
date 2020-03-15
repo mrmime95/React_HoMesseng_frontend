@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux'
-import user from './user'
-import page from './page'
-import navigation from './navigation'
+import auth from './auth'
+import alert from './alert'
 
 const rootReducer = combineReducers({
-  user,
-  page,
-  navigation
+  auth,
+  alert
 })
 
 export default rootReducer

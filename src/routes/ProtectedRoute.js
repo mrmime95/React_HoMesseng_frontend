@@ -9,9 +9,9 @@ import { routes } from './index'
  * @param {{redirect: string} & RouteProps} props
  */
 function ProtectedRoute({ redirect = routes.authLogin, ...props }) {
-  const { authenticated } = useSelector(s => ({ authenticated: !!s.user }))
+  const isAuthenticated = useSelector(s => s.auth.isAuthenticated)
 
-  if (!authenticated) {
+  if (!isAuthenticated) {
     return <Redirect to={redirect} />
   }
 

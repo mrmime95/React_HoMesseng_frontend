@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
@@ -26,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function RegisterForm() {
+export default function RegisterForm({ onRegister }) {
   const classes = useStyles()
 
   return (
@@ -37,15 +39,12 @@ export default function RegisterForm() {
       <Typography component="h1" variant="h5">
         Register
       </Typography>
-      <Form
-        onSubmit={value => {
-          console.log(value)
-        }}
-      >
+      <Form onSubmit={onRegister}>
         {() => (
           <>
-            <TextField required autoFocus label="Email Address" name="email" />
-            <TextField required name="password" label="Password" type="password" />
+            <TextField autoFocus label="Name" name="name" />
+            <TextField autoFocus label="Email Address" name="email" />
+            <TextField name="password" label="Password" type="password" />
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
               Register
             </Button>
@@ -59,4 +58,8 @@ export default function RegisterForm() {
       </Grid>
     </div>
   )
+}
+
+RegisterForm.propTypes = {
+  onRegister: PropTypes.func
 }
